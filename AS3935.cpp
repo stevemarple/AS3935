@@ -252,7 +252,7 @@ bool AS3935::calibrate(void)
     delay(40);
 
     noInterrupts();
-    int16_t errorVal = 1250 - _calibrateCounter;
+    int16_t errorVal = _calibrateCounter - 1250;
     interrupts();
 
     Serial.print("Tuning value: ");
