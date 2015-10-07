@@ -7,7 +7,7 @@ bit-banging Arduino library is used
 
 ## License
 Released under the GNU Lesser General Public License, version 2.1. See
-LICENSE for details.
+LICENSE.txt for details.
 
 
 
