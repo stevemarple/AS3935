@@ -80,7 +80,7 @@ private:
   volatile state_t _state; // Read but not modified by interrupt handler
   volatile bool _triggered;
   volatile uint16_t _calibrateCounter;
-  volatile void (*_timestampCB)(void);
+  void (*_timestampCB)(void);
 
   // Timer used when changing state. Used by the interrupt handler
   // when in listening state. 

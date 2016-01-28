@@ -23,7 +23,7 @@ bool AS3935::initialise(uint8_t sda, uint8_t scl, uint8_t address,
   _tunCap = tunCap;
   _indoor = indoor;
   _triggered = false;
-  _timestampCB = (volatile void (*)())timestampCB;
+  _timestampCB = (void (*)())timestampCB;
   _i2c.setSda(sda);
   _i2c.setScl(scl);
   _i2c.setTimeout_ms(40);
