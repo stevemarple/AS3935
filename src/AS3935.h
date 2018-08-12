@@ -1,7 +1,7 @@
 #ifndef AS3935_H
 #define AS3935_H
 
-#define AS3935_VERSION "1.0.1"
+#define AS3935_VERSION "1.0.2"
 
 #include <AsyncDelay.h>
 #include <SoftWire.h>
