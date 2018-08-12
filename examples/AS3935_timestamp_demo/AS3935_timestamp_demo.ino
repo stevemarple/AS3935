@@ -72,25 +72,12 @@ void setup(void)
 
   Serial.begin(9600);
   Wire.begin();
-  uint8_t addressList[] = {RTCx_MCP7941x_ADDRESS,
-			   RTCx_DS1307_ADDRESS};
 
   // Autoprobe to find a real-time clock.
-  if (rtc.autoprobe(addressList, sizeof(addressList))) {
+  if (rtc.autoprobe()) {
     // Found something, hopefully a clock.
     Serial.print("Autoprobe found ");
-    switch (rtc.getDevice()) {
-      case RTCx::DS1307:
-	Serial.print("DS1307");
-	break;
-    case RTCx::MCP7941x:
-      Serial.print("MCP7941x");
-      break;
-    default:
-      // Ooops. Must update this example!
-      Serial.print("unknown device");
-      break;
-    }
+	Serial.print(rtc.getDeviceName());
     Serial.print(" at 0x");
     Serial.println(rtc.getAddress(), HEX);
   }
