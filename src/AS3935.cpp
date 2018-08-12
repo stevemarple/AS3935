@@ -47,9 +47,9 @@ bool AS3935::initialise(uint8_t sda, uint8_t scl, uint8_t address,
 bool AS3935::readRegister(uint8_t reg, uint8_t &val) const
 {
   bool r = !(_i2c.startWrite(_address) ||
-	    _i2c.write(reg) || 
-	    _i2c.repeatedStartRead(_address) ||
-	    _i2c.readThenNack(val));
+			 _i2c.llWrite(reg) ||
+			 _i2c.repeatedStartRead(_address) ||
+			 _i2c.readThenNack(val));
   _i2c.stop();
   return r;
 }
@@ -58,8 +58,8 @@ bool AS3935::readRegister(uint8_t reg, uint8_t &val) const
 bool AS3935::writeRegister(uint8_t reg, uint8_t val) const
 {
   bool r = !(_i2c.startWrite(_address) ||
-	    _i2c.write(reg) ||
-	    _i2c.write(val));
+			 _i2c.llWrite(reg) ||
+			 _i2c.llWrite(val));
   _i2c.stop();
   return r;
 }

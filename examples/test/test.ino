@@ -24,10 +24,9 @@ void setup(void)
   for (uint8_t reg = 0; reg < 0x10; ++reg) {
     delay(50);
     i2c.start(addr, SoftWire::writeMode);
-    i2c.write(reg);
+    i2c.llWrite(reg);
     i2c.repeatedStart(addr, SoftWire::readMode);
-    //i2c.stop();
-    //i2c.start(addr, SoftWire::readMode);
+
     uint8_t val;
     i2c.readThenNack(val);
     i2c.stop();
